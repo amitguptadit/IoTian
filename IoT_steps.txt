@@ -1,0 +1,195 @@
+https://medium.com/@ghalfacree/benchmarking-the-raspberry-pi-4-73e5afbcd54b
+40 PIN 
+OS Install = Fresh Raspian Buster Lite install on a new SD card.
+
+[1]
+Rasbian OS:
+https://www.raspberrypi.org/downloads/raspberry-pi-os/
+Debian Buster with Raspberry Pi Desktop
+https://minibianpi.wordpress.com/
+
+[2] Flash OS images to SD cards & USB drives, safely and easily:
+https://www.balena.io/etcher/
+
+[3]
+Enable SSH and wireless LAN and VNC:
+https://www.raspberrypi.org/documentation/remote-access/ssh/
+https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
+# sudo raspi-config
+# vim /etc/wpa_supplicant/wpa_supplicant.conf
+
+--For vnc
+#sudo nano /boot/config.txt
+by uncommenting these below lines -
+framebuffer_width=1280
+framebuffer_height=720
+and then
+sudo reboot
+# shutdown -h now
+[4]
+Setting password:
+Enter the default credentials:
+Username: pi
+Password: raspberry
+#sudo su (by default login throught pi user)
+
+--change password:
+# passwd root
+# passwd p
+
+step by step:
+https://learn.sparkfun.com/tutorials/python-programming-tutorial-getting-started-with-the-raspberry-pi/configure-your-pi
+
+******NEW PI USER PASSWORD**
+user=pi
+password=aarav@2015
+
+[4]
+**********Istall Software on Raspberry pi**
+sudo apt update
+sudo apt full-upgrade
+sudo reboot
+sudo apt install python3 idle3
+sudo apt-get install python3-pip
+sudo apt install python3
+python3 --version
+python3 -m pip install urllib3
+
+sudo apt install git
+
+
+sudo apt-get update 
+sudo apt-get upgrade
+
+sudo apt-get install libatlas-base-dev
+sudo apt-get install libjasper-dev
+sudo apt-get install libqtgui4 
+sudo apt-get install libqt4-test
+sudo apt-get install libhdf5-dev
+
+sudo python -m pip install flask
+sudo python -m pip install numpy
+sudo python -m pip install opencv-contrib-python
+sudo python -m pip install imutils
+sudo python -m pip install opencv-python
+
+sudo apt-get install build-essential cmake pkg-config
+sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+
+sudo apt-get install libxvidcore-dev libx264-dev=done 7thjuly
+sudo apt-get install libgtk2.0-dev
+sudo apt-get install libatlas-base-dev gfortran
+
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip
+unzip opencv.zip
+wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip
+unzip opencv_contrib.zip
+python3 pip install numpy
+
+---For ML 
+sudo python3 -m pip install virtualenv virtualenvwrapper
+python3 -m pip install scikit-learn
+python3 -m pip install pillow
+python3 -m pip install h5py
+python3 -m pip install tensorflow
+python3 -m pip install pandas
+python3 -m pip install keras
+python3 -m pip install torch==1.2.0+cpu torchvision=0.4.0+cpu -f htttps://download.pytorch.org./whl/torch_stable.html
+python3 -m pip install torchvision
+python3 -m pip install opencv-python
+python3 -m pip install imutils
+
+---Installing docker 
+# sudo apt-get update && sudo apt-get upgrade
+# curl -fsSL https://get.docker.com -o get-docker.sh
+# sudo sh get-docker.sh
+
+--Add a Non-Root User to the Docker Group
+# sudo usermod -aG docker Pi
+--Check Docker Version and Info
+# docker version
+-- Run Hello World Container
+# docker run hello-world
+
+step by steps :
+https://phoenixnap.com/kb/docker-on-raspberry-pi
+
+[5] 
+Creating alias:
+vim ~/.bashrc
+alias pip=pip3
+
+Run :
+source ~/.bashrc
+
+
+[6] Temperature detection:  DHT Sensor Library
+
+Installation-
+
+
+[A] Adafruit_DHT LIBRARY:
+# sudo python -m pip install Adafruit_DHT
+# cd /usr/local/lib/python3.7/dist-packages/Adafruit_DHT-1.4.0-py3.7-linux-armv7l.egg/Adafruit_DHT/platform_detect.py
+
+Note: Now it is DEPRECATED
+
+https://github.com/adafruit/Adafruit_Python_DHT.git
+
+
+[B] adafruit-circuitpython-dht LIBRARY:
+# pip3 install adafruit-circuitpython-dht
+# sudo apt-get install libgpiod2
+--instal pigpiod
+https://github.com/joan2937/pigpio
+- Requires the pigpio daemon to be running.
+# sudo pigpiod
+
+step by steps:
+https://learn.adafruit.com/dht-humidity-sensing-on-raspberry-pi-with-gdocs-logging/python-setup
+
+
+[C] dht11 LIBRARY:
+# pip install dht11
+	OR 
+# python -m pip install dht11
+https://github.com/szazo/DHT11_Python
+
+
+[7]: Pulse Oximeter:
+MAX30100 Sensor Library -
+https://github.com/kontakt/MAX30100
+https://github.com/mfitzp/max30100
+
+[8] Camera stream:
+	Forums Docs for Camera stream:
+	https://www.raspberrypi.org/documentation/usage/camera/
+	https://www.raspberrypi.org/forums/viewtopic.php?t=232533
+
+[A] Enable Camera and I2C Module from 'sudo raspi-config' command
+[B] sudo nano /boot/config.txt
+    start_debug=1
+    raspistill -o image.jpg
+[C]  Camera Video streaming : flask application for camera stream.
+
+
+Installation:
+
+sudo apt-get update 
+sudo apt-get upgrade
+
+sudo apt-get install libatlas-base-dev
+sudo apt-get install libjasper-dev
+sudo apt-get install libqtgui4 
+sudo apt-get install libqt4-test
+sudo apt-get install libhdf5-dev
+
+sudo pip3 install flask
+sudo pip3 install numpy
+sudo pip3 install opencv-contrib-python
+sudo pip3 install imutils
+sudo pip3 install opencv-python
+pip3 install opencv-python
+
+
